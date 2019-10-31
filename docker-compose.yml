@@ -1,0 +1,13 @@
+version: "3"
+services:
+  app:
+    image: shelmangroup/spice-html5
+    ports:
+      - 8080:8080
+    command: ter:5900
+    depends_on:
+      - ter
+  ter:
+    image: abrakadabra21099/ter-spice
+    ports:
+      - 5900:5900
