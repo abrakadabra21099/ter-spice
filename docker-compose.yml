@@ -1,13 +1,49 @@
 version: "3"
 services:
-  app:
+  app0:
     image: shelmangroup/spice-html5
     ports:
-      - 8080:8080
+      - 8080:8080/tcp
     command: ter:5900
+    depends_on:
+      - ter
+  app1:
+    image: shelmangroup/spice-html5
+    ports:
+      - 8081:8080/tcp
+    command: ter:5901
+    depends_on:
+      - ter
+  app2:
+    image: shelmangroup/spice-html5
+    ports:
+      - 8082:8080/tcp
+    command: ter:5902
+    depends_on:
+      - ter
+  app3:
+    image: shelmangroup/spice-html5
+    ports:
+      - 8083:8080/tcp
+    command: ter:5903
+    depends_on:
+      - ter
+  app4:
+    image: shelmangroup/spice-html5
+    ports:
+      - 8084:8080/tcp
+    command: ter:5904
+    depends_on:
+      - ter
+  app5:
+    image: shelmangroup/spice-html5
+    ports:
+      - 8085:8080/tcp
+    command: ter:5905
     depends_on:
       - ter
   ter:
     image: abrakadabra21099/ter-spice
     ports:
-      - 5900:5900
+      - 5900-5905:5900-5905/tcp
+    build: .
